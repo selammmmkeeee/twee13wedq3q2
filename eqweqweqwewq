@@ -439,86 +439,6 @@ function Library:Create(xHubName,xGameName)
             end)
         end
 
-        function Elements:Slider(Name,Min,Max,Callback)
-            local Name = Name or "Slider"
-            local Callback = Callback or function() end
-            local Max = Max or 500
-            local Min = Min or 16
-            local SliderFrame = Instance.new("Frame")
-            local SliderFrameCorner = Instance.new("UICorner")
-            local SliderButton = Instance.new("TextButton")
-            local SliderButtonCorner = Instance.new("UICorner")
-            local SliderTrail = Instance.new("Frame")
-            local SliderTrailCorner = Instance.new("UICorner")
-            local SliderName = Instance.new("TextLabel")
-            local SliderNamePadding = Instance.new("UIPadding")
-            local SliderValue = Instance.new("TextLabel")
-            local SliderValuePadding = Instance.new("UIPadding")
-
-            SliderFrame.Name = tostring(Name).."_Slider"
-            SliderFrame.Parent = Tab
-            SliderFrame.BackgroundColor3 = Color3.fromRGB(40, 42, 60)
-            SliderFrame.Size = UDim2.new(0, 408, 0, 50)
-
-            SliderFrameCorner.Name = "SliderFrameCorner"
-            SliderFrameCorner.Parent = SliderFrame
-
-            SliderButton.Name = "SliderButton"
-            SliderButton.Parent = SliderFrame
-            SliderButton.BackgroundColor3 = Color3.fromRGB(55, 55, 75)
-            SliderButton.BorderSizePixel = 0
-            SliderButton.Position = UDim2.new(0.0242369417, 0, 0.639999986, 0)
-            SliderButton.Size = UDim2.new(0, 389, 0, 10)
-            SliderButton.Font = Enum.Font.SourceSans
-            SliderButton.Text = ""
-            SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-            SliderButton.TextSize = 14.000
-
-            SliderButtonCorner.Name = "SliderButtonCorner"
-            SliderButtonCorner.Parent = SliderButton
-
-            SliderTrail.Name = "SliderTrail"
-            SliderTrail.Parent = SliderButton
-            SliderTrail.BackgroundColor3 = Color3.fromRGB(55, 74, 251)
-            SliderTrail.Size = UDim2.new(0, 0, 0, 10)
-            SliderTrail.BorderSizePixel = 0
-
-            SliderTrailCorner.Name = "SliderTrailCorner"
-            SliderTrailCorner.Parent = SliderTrail
-
-            SliderName.Name = "SliderName"
-            SliderName.Parent = SliderFrame
-            SliderName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            SliderName.BackgroundTransparency = 1.000
-            SliderName.BorderSizePixel = 0
-            SliderName.Size = UDim2.new(0, 320, 0, 26)
-            SliderName.Font = Enum.Font.Gotham
-            SliderName.Text = Name
-            SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
-            SliderName.TextSize = 16.000
-            SliderName.TextXAlignment = Enum.TextXAlignment.Left
-
-            SliderNamePadding.Name = "SliderNamePadding"
-            SliderNamePadding.Parent = SliderName
-            SliderNamePadding.PaddingLeft = UDim.new(0, 10)
-
-            SliderValue.Name = "SliderValue"
-            SliderValue.Parent = SliderFrame
-            SliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            SliderValue.BackgroundTransparency = 1.000
-            SliderValue.BorderSizePixel = 0
-            SliderValue.TextTransparency = 1.000
-            SliderValue.Position = UDim2.new(0.802061796, 0, 0, 0)
-            SliderValue.Size = UDim2.new(0, 80, 0, 26)
-            SliderValue.Font = Enum.Font.Gotham
-            SliderValue.Text = "Value"
-            SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
-            SliderValue.TextSize = 16.000
-            SliderValue.TextXAlignment = Enum.TextXAlignment.Right
-
-            SliderValuePadding.Name = "SliderValuePadding"
-            SliderValuePadding.Parent = SliderValue
-            SliderValuePadding.PaddingRight = UDim.new(0, 10)
 
             local ms = game.Players.LocalPlayer:GetMouse()
             local uis = game:GetService("UserInputService")
@@ -560,6 +480,70 @@ function Library:Create(xHubName,xGameName)
             end)
         end
 
+        function Elements:Textbox(Name,Default,Callback)
+            local Name = Name or "Textbox"
+            local Default = Default or ""
+            local Callback = Callback or function() end
+            local TextboxFrame = Instance.new("Frame")
+            local TextboxFrameCorner = Instance.new("UICorner")
+            local TextboxName = Instance.new("TextLabel")
+            local TextboxNamePadding = Instance.new("UIPadding")
+            local Textbox = Instance.new("TextBox")
+            local TextboxCorner = Instance.new("UICorner")
+
+            TextboxFrame.Name = tostring(Name).."_Textbox"
+            TextboxFrame.Parent = Tab
+            TextboxFrame.BackgroundColor3 = Color3.fromRGB(40, 42, 60)
+            TextboxFrame.Size = UDim2.new(0, 408, 0, 35)
+
+            TextboxFrameCorner.Name = "TextboxFrameCorner"
+            TextboxFrameCorner.Parent = TextboxFrame
+
+            TextboxName.Name = "TextboxName"
+            TextboxName.Parent = TextboxFrame
+            TextboxName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextboxName.BackgroundTransparency = 1.000
+            TextboxName.BorderSizePixel = 0
+            TextboxName.Size = UDim2.new(0, 235, 0, 35)
+            TextboxName.Font = Enum.Font.Gotham
+            TextboxName.Text = Name
+            TextboxName.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextboxName.TextSize = 16.000
+            TextboxName.TextXAlignment = Enum.TextXAlignment.Left
+
+            TextboxNamePadding.Name = "TextboxNamePadding"
+            TextboxNamePadding.Parent = TextboxName
+            TextboxNamePadding.PaddingLeft = UDim.new(0, 10)
+
+            Textbox.Name = "Textbox"
+            Textbox.Parent = TextboxFrame
+            Textbox.BackgroundColor3 = Color3.fromRGB(55, 55, 75)
+            Textbox.BorderSizePixel = 0
+            Textbox.Position = UDim2.new(0.610294104, 0, 0.171428576, 0)
+            Textbox.Size = UDim2.new(0, 150, 0, 23)
+            Textbox.Font = Enum.Font.Gotham
+            Textbox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+            Textbox.PlaceholderText = Default
+            Textbox.Text = ""
+            Textbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Textbox.TextSize = 14.000
+
+            TextboxCorner.Name = "TextboxCorner"
+            TextboxCorner.Parent = Textbox
+
+            Textbox.Focused:Connect(function()
+                game:GetService("TweenService"):Create(Textbox, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                    BackgroundColor3 = Color3.fromRGB(55, 74, 251)
+                }):Play()
+            end)
+
+            Textbox.FocusLost:Connect(function()
+                game:GetService("TweenService"):Create(Textbox, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                    BackgroundColor3 = Color3.fromRGB(55, 55, 75)
+                }):Play()
+                Callback(Textbox.Text)
+            end)
+        end
 
         function Elements:Keybind(Name,xKey,Callback)
             local Name = Name or "Keybind"
