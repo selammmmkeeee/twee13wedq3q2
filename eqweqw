@@ -1,0 +1,51 @@
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
+
+local win = lib:Window("PREVIEW",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+
+local tab = win:Tab("Auto Farm")
+
+-- function
+function autotrain()
+    while _G.autotrain == true do
+        local ohString1 = "TrainingClick"
+
+        game:GetService("ReplicatedStorage").RemoteEvents.Detection:FireServer(ohString1)
+        wait(.000000001)
+      end
+   end
+
+
+-- function
+function autoFarm()
+    while _G.autoFarm == true do
+        game.ReplicatedStorage.premiumautoclick:FireServer()
+        game.ReplicatedStorage.normalclick:FireServer(true)
+        game.ReplicatedStorage.autoclick:FireServer()
+        game.ReplicatedStorage.premiumautoclick:FireServer()
+        game.ReplicatedStorage.normalclick:FireServer(true)
+        game.ReplicatedStorage.autoclick:FireServer()
+        wait(.000000001)
+      end
+   end
+
+tab:Label("Auto Farm")
+
+
+tab:Toggle("Auto Money",false, function(Value)
+    _G.autoFarm = Value    
+        autoFarm()  
+end)
+
+tab:Toggle("Auto Train",false, function(Value)
+    _G.autotrain = Value    
+        autotrain()  
+end)
+
+
+
+
+local changeclr = win:Tab("Change UI Color")
+
+changeclr:Colorpicker("Change UI Color",Color3.fromRGB(44, 120, 224), function(t)
+lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
+end)
